@@ -9,100 +9,36 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --navy:  #060D1E;
-  --navy2: #0D1B38;
-  --navy3: #162B52;
-  --blue2: #2563EB;
-  --cyan:  #06B6D4;
-  --bright:#60A5FA;
-  --safe:  #10B981;
-  --danger:#EF4444;
-  --tm:    #E2EAFF;
-  --ts:    #8BA3CC;
-  --tmut:  #445577;
+  --navy:  #060D1E; --navy2: #0D1B38; --navy3: #162B52;
+  --blue2: #2563EB; --cyan:  #06B6D4; --bright:#60A5FA;
+  --tm:    #E2EAFF; --ts:    #8BA3CC; --tmut:  #445577;
 }
 html { scroll-behavior: smooth; }
 body { font-family:'Noto Sans JP',sans-serif; background:var(--navy); color:var(--tm); overflow-x:hidden; -webkit-font-smoothing:antialiased; }
-nav {
-  position:fixed; top:0; left:0; right:0; z-index:100;
-  padding:16px 32px; display:flex; align-items:center; justify-content:space-between;
-  background:rgba(6,13,30,0.96); backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(96,165,250,0.1);
-}
+nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:16px 32px; display:flex; align-items:center; justify-content:space-between; background:rgba(6,13,30,0.96); backdrop-filter:blur(20px); border-bottom:1px solid rgba(96,165,250,0.1); }
 .nb { display:flex; align-items:center; gap:10px; }
-.ns {
-  width:34px; height:34px; background:linear-gradient(135deg,var(--blue2),var(--cyan));
-  border-radius:9px; display:flex; align-items:center; justify-content:center;
-}
+.ns { width:34px; height:34px; background:linear-gradient(135deg,var(--blue2),var(--cyan)); border-radius:9px; display:flex; align-items:center; justify-content:center; }
 .nl { font-size:17px; font-weight:700; color:white; letter-spacing:2px; }
-.nc {
-  background:linear-gradient(135deg,var(--blue2),var(--cyan)); color:white; border:none;
-  padding:10px 24px; border-radius:99px; font-family:'Noto Sans JP',sans-serif;
-  font-size:13px; font-weight:500; cursor:pointer; letter-spacing:1px;
-  transition:opacity .2s,transform .2s; text-decoration:none; display:inline-block;
-}
+.nc { background:linear-gradient(135deg,var(--blue2),var(--cyan)); color:white; border:none; padding:10px 24px; border-radius:99px; font-family:'Noto Sans JP',sans-serif; font-size:13px; font-weight:500; cursor:pointer; letter-spacing:1px; transition:opacity .2s,transform .2s; text-decoration:none; display:inline-block; }
 .nc:hover { opacity:.9; transform:translateY(-1px); }
-
-/* HERO */
-.hero {
-  min-height:100vh; display:flex; align-items:center; justify-content:center;
-  text-align:center; padding:120px 24px 80px;
-  background:radial-gradient(ellipse 80% 60% at 50% -5%, rgba(37,99,235,.18), transparent);
-}
-.hbadge {
-  display:inline-block;
-  background:rgba(239,68,68,.12); border:1px solid rgba(239,68,68,.3);
-  color:#FCA5A5; padding:6px 18px; border-radius:99px;
-  font-size:12px; font-weight:500; letter-spacing:1px; margin-bottom:36px;
-}
+.hero { min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:120px 24px 80px; background:radial-gradient(ellipse 80% 60% at 50% -5%, rgba(37,99,235,.18), transparent); }
+.hbadge { display:inline-block; background:rgba(239,68,68,.12); border:1px solid rgba(239,68,68,.3); color:#FCA5A5; padding:6px 18px; border-radius:99px; font-size:12px; font-weight:500; letter-spacing:1px; margin-bottom:36px; }
 .bdot { display:inline-block; width:6px; height:6px; background:#EF4444; border-radius:50%; margin-right:8px; animation:bl 1.5s infinite; }
 @keyframes bl { 0%,100%{opacity:1} 50%{opacity:.2} }
-
-/* Scan animation */
-.cdemo {
-  width:260px; height:190px; border:1.5px solid rgba(96,165,250,.35); border-radius:18px;
-  margin:0 auto 40px; position:relative; overflow:hidden; background:rgba(10,20,45,.9);
-}
+.cdemo { width:260px; height:190px; border:1.5px solid rgba(96,165,250,.35); border-radius:18px; margin:0 auto 40px; position:relative; overflow:hidden; background:rgba(10,20,45,.9); }
 .dlines { position:absolute; top:22px; left:22px; right:22px; }
 .dl { height:7px; background:rgba(255,255,255,.1); border-radius:4px; margin-bottom:9px; }
 .dl.fr { background:rgba(239,68,68,.38); }
-.sbar {
-  position:absolute; left:0; right:0; height:2px;
-  background:linear-gradient(to right,transparent,#60A5FA,#06B6D4,#60A5FA,transparent);
-  box-shadow:0 0 18px rgba(96,165,250,.6);
-  animation:sm 2.2s ease-in-out infinite;
-}
+.sbar { position:absolute; left:0; right:0; height:2px; background:linear-gradient(to right,transparent,#60A5FA,#06B6D4,#60A5FA,transparent); box-shadow:0 0 18px rgba(96,165,250,.6); animation:sm 2.2s ease-in-out infinite; }
 @keyframes sm { 0%{top:8%;opacity:0} 10%{opacity:1} 90%{opacity:1} 100%{top:88%;opacity:0} }
 .cn { position:absolute; width:16px; height:16px; border-color:rgba(96,165,250,.7); border-style:solid; }
-.cn.tl{top:10px;left:10px;border-width:2px 0 0 2px}
-.cn.tr{top:10px;right:10px;border-width:2px 2px 0 0}
-.cn.bl{bottom:10px;left:10px;border-width:0 0 2px 2px}
-.cn.br{bottom:10px;right:10px;border-width:0 2px 2px 0}
-.sres {
-  position:absolute; bottom:12px; left:50%; transform:translateX(-50%);
-  background:rgba(239,68,68,.18); border:1px solid rgba(239,68,68,.45);
-  color:#FCA5A5; padding:4px 14px; border-radius:99px;
-  font-size:11px; font-weight:500; white-space:nowrap; letter-spacing:.5px;
-}
-
-.htitle {
-  font-size:clamp(32px,6.5vw,64px); font-weight:700;
-  line-height:1.45; color:white; margin-bottom:24px;
-}
-.ac {
-  background:linear-gradient(135deg,#60A5FA,#06B6D4);
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-}
-.hsub {
-  font-size:clamp(14px,2.2vw,17px); color:var(--ts); line-height:2.3;
-  margin-bottom:44px; max-width:500px; margin-left:auto; margin-right:auto; font-weight:300;
-}
-.abtn {
-  display:inline-flex; align-items:center; gap:12px;
-  background:white; color:#0A0A14; padding:14px 28px; border-radius:14px;
-  text-decoration:none; transition:all .3s; box-shadow:0 8px 32px rgba(0,0,0,.35);
-  margin-bottom:40px;
-}
+.cn.tl{top:10px;left:10px;border-width:2px 0 0 2px} .cn.tr{top:10px;right:10px;border-width:2px 2px 0 0}
+.cn.bl{bottom:10px;left:10px;border-width:0 0 2px 2px} .cn.br{bottom:10px;right:10px;border-width:0 2px 2px 0}
+.sres { position:absolute; bottom:12px; left:50%; transform:translateX(-50%); background:rgba(239,68,68,.18); border:1px solid rgba(239,68,68,.45); color:#FCA5A5; padding:4px 14px; border-radius:99px; font-size:11px; font-weight:500; white-space:nowrap; }
+.htitle { font-size:clamp(32px,6.5vw,64px); font-weight:700; line-height:1.45; color:white; margin-bottom:24px; }
+.ac { background:linear-gradient(135deg,#60A5FA,#06B6D4); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.hsub { font-size:clamp(14px,2.2vw,17px); color:var(--ts); line-height:2.3; margin-bottom:44px; max-width:500px; margin-left:auto; margin-right:auto; font-weight:300; }
+.abtn { display:inline-flex; align-items:center; gap:12px; background:white; color:#0A0A14; padding:14px 28px; border-radius:14px; text-decoration:none; transition:all .3s; box-shadow:0 8px 32px rgba(0,0,0,.35); margin-bottom:40px; }
 .abtn:hover { transform:translateY(-3px); box-shadow:0 16px 48px rgba(0,0,0,.45); }
 .asub { font-size:10px; font-weight:400; opacity:.55; display:block; }
 .amain { font-size:16px; font-weight:700; display:block; }
@@ -110,14 +46,10 @@ nav {
 .kpi { text-align:center; }
 .knum { font-size:30px; font-weight:700; color:#60A5FA; display:block; letter-spacing:-1px; }
 .klbl { font-size:11px; color:var(--ts); letter-spacing:1px; margin-top:4px; display:block; }
-
-/* SECTIONS */
 .slbl { text-align:center; font-size:10px; letter-spacing:5px; color:#60A5FA; margin-bottom:14px; font-weight:500; opacity:.85; }
 .stitle { text-align:center; font-size:clamp(22px,4vw,36px); font-weight:700; color:white; line-height:1.6; margin-bottom:12px; }
 .ssub { text-align:center; font-size:14px; color:var(--ts); line-height:2.2; font-weight:300; }
 .bline { width:40px; height:2px; background:linear-gradient(to right,var(--blue2),var(--cyan)); border-radius:99px; margin:22px auto 48px; }
-
-/* STATS */
 .asec { padding:80px 24px; background:rgba(239,68,68,.04); border-top:1px solid rgba(239,68,68,.1); border-bottom:1px solid rgba(239,68,68,.1); }
 .ain { max-width:860px; margin:0 auto; }
 .sgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin-top:48px; }
@@ -126,8 +58,6 @@ nav {
 .sunit { font-size:18px; }
 .sdesc { font-size:13px; color:var(--ts); margin-top:8px; line-height:1.9; }
 .snote { font-size:10px; color:var(--tmut); margin-top:6px; }
-
-/* HOW */
 .hsec { padding:100px 24px; background:var(--navy); }
 .hsteps { max-width:640px; margin:0 auto; }
 .hstep { display:flex; gap:28px; align-items:flex-start; padding:32px 0; border-bottom:1px solid rgba(96,165,250,.07); }
@@ -136,19 +66,15 @@ nav {
 .stag { display:inline-block; background:rgba(6,182,212,.1); border:1px solid rgba(6,182,212,.22); color:var(--cyan); padding:3px 12px; border-radius:99px; font-size:10px; margin-bottom:10px; letter-spacing:1px; }
 .hc h3 { font-size:18px; color:white; font-weight:600; margin-bottom:10px; }
 .hc p { font-size:14px; color:var(--ts); line-height:2.3; font-weight:300; }
-
-/* DETECT */
 .dsec { padding:100px 24px; background:var(--navy2); }
 .dgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; max-width:860px; margin:0 auto; }
 .dcard { background:var(--navy); border:1px solid rgba(96,165,250,.08); border-radius:16px; padding:28px 24px; transition:border-color .3s,transform .3s; }
 .dcard:hover { border-color:rgba(96,165,250,.25); transform:translateY(-3px); }
 .di { width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:16px; font-size:22px; }
-.di.r{background:rgba(239,68,68,.1)}.di.o{background:rgba(245,158,11,.1)}.di.b{background:rgba(37,99,235,.1)}.di.p{background:rgba(139,92,246,.1)}
+.di.r{background:rgba(239,68,68,.1)} .di.o{background:rgba(245,158,11,.1)} .di.b{background:rgba(37,99,235,.1)} .di.p{background:rgba(139,92,246,.1)}
 .dt { font-size:15px; color:white; font-weight:600; margin-bottom:8px; }
 .dd { font-size:13px; color:var(--ts); line-height:2; font-weight:300; }
 .db { display:inline-block; margin-top:12px; font-size:10px; color:var(--tmut); border:1px solid rgba(255,255,255,.08); padding:3px 10px; border-radius:99px; }
-
-/* FAMILY */
 .fsec { padding:100px 24px; background:var(--navy); }
 .fflow { display:flex; align-items:flex-start; justify-content:center; gap:0; max-width:800px; margin:56px auto; flex-wrap:wrap; }
 .fstep { text-align:center; flex:1; min-width:160px; padding:20px 12px; }
@@ -161,18 +87,14 @@ nav {
 .ffi { font-size:22px; flex-shrink:0; margin-top:2px; }
 .fft { font-size:14px; color:white; font-weight:600; margin-bottom:5px; }
 .ffd { font-size:12px; color:var(--ts); line-height:2; font-weight:300; }
-
-/* ELDERLY */
 .esec { padding:100px 24px; background:var(--navy2); }
 .egrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; max-width:860px; margin:0 auto; }
 .ec { text-align:center; padding:32px 20px; background:var(--navy); border-radius:16px; border:1px solid rgba(96,165,250,.07); }
 .en { font-size:42px; font-weight:700; color:#60A5FA; opacity:.4; margin-bottom:12px; }
 .et { font-size:15px; color:white; font-weight:600; margin-bottom:8px; }
 .ed { font-size:12px; color:var(--ts); line-height:2.1; font-weight:300; }
-
-/* PRICING */
 .psec { padding:100px 24px; background:var(--navy); }
-.pgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; max-width:820px; margin:0 auto; }
+.pgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; max-width:560px; margin:0 auto; }
 .pc { background:var(--navy2); border:1px solid rgba(96,165,250,.1); border-radius:20px; padding:36px 28px; position:relative; }
 .pc.hot { border-color:rgba(37,99,235,.45); background:rgba(37,99,235,.06); }
 .pbadge { position:absolute; top:-13px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,var(--blue2),var(--cyan)); color:white; padding:4px 18px; border-radius:99px; font-size:11px; font-weight:600; letter-spacing:1px; white-space:nowrap; }
@@ -182,8 +104,6 @@ nav {
 .ppitch { font-size:12px; color:var(--ts); margin:12px 0 20px; line-height:1.9; }
 .plist { font-size:13px; color:var(--tm); line-height:2.6; }
 .pannual { font-size:11px; color:var(--tmut); margin-top:16px; padding-top:16px; border-top:1px solid rgba(255,255,255,.05); }
-
-/* GIFT */
 .gsec { padding:100px 24px; text-align:center; background:linear-gradient(160deg,var(--navy3),var(--navy2)); }
 .gbox { max-width:600px; margin:48px auto 0; border:1px solid rgba(96,165,250,.18); border-radius:24px; padding:52px 44px; background:rgba(13,27,56,.65); backdrop-filter:blur(20px); }
 .gemoji { font-size:60px; margin-bottom:24px; display:block; }
@@ -194,8 +114,6 @@ nav {
 .gst:last-child{border-bottom:none}
 .gsn { width:28px; height:28px; background:rgba(37,99,235,.2); border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; color:#60A5FA; font-weight:600; }
 .gstx { font-size:13px; color:var(--ts); line-height:1.9; padding-top:4px; font-weight:300; }
-
-/* CTA */
 .ctasec { padding:100px 24px; background:var(--navy); text-align:center; }
 .ctatitle { font-size:clamp(26px,5vw,46px); font-weight:700; color:white; line-height:1.6; margin-bottom:14px; }
 .ctasub { font-size:15px; color:var(--ts); line-height:2.2; margin-bottom:48px; font-weight:300; }
@@ -205,72 +123,36 @@ nav {
 .ctas { display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(96,165,250,.3); color:#60A5FA; padding:16px 32px; border-radius:16px; text-decoration:none; font-size:15px; font-weight:500; transition:all .2s; }
 .ctas:hover { background:rgba(96,165,250,.06); }
 .pvbox { max-width:480px; margin:0 auto; padding:24px 28px; border:1px solid rgba(96,165,250,.1); border-radius:16px; background:var(--navy2); text-align:left; }
-
 footer { padding:48px 24px; border-top:1px solid rgba(96,165,250,.07); text-align:center; }
 .flogo { font-size:15px; font-weight:700; color:#60A5FA; letter-spacing:2px; margin-bottom:12px; }
 .flinks { display:flex; gap:24px; justify-content:center; margin-bottom:16px; flex-wrap:wrap; }
 .flink { font-size:12px; color:var(--tmut); text-decoration:none; transition:color .2s; }
 .flink:hover { color:var(--ts); }
 .fcopy { font-size:11px; color:var(--tmut); }
-
 .fade { opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease; }
 .fade.visible { opacity:1; transform:translateY(0); }
-@media(max-width:600px){
-  nav{padding:14px 16px}
-  .hero{padding:100px 16px 56px}
-  .cdemo{width:220px;height:162px}
-  .farrow{display:none}
-  .gbox{padding:32px 20px}
-}
+@media(max-width:600px){ nav{padding:14px 16px} .hero{padding:100px 16px 56px} .cdemo{width:220px;height:162px} .farrow{display:none} .gbox{padding:32px 20px} }
 </style>
 </head>
 <body>
-
 <nav>
-  <div class="nb">
-    <div class="ns">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-    </div>
-    <span class="nl">詐欺チェック</span>
-  </div>
+  <div class="nb"><div class="ns"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><span class="nl">詐欺チェック</span></div>
   <a href="#download" class="nc">App Storeで見る</a>
 </nav>
 
 <section class="hero">
   <div>
-    <div class="hbadge">
-      <span class="bdot"></span>高齢者詐欺被害、年間600億円以上
-    </div>
+    <div class="hbadge"><span class="bdot"></span>高齢者詐欺被害、年間600億円以上</div>
     <div class="cdemo">
-      <div class="dlines">
-        <div class="dl" style="width:80%"></div>
-        <div class="dl fr" style="width:95%"></div>
-        <div class="dl" style="width:65%"></div>
-        <div class="dl" style="width:75%"></div>
-        <div class="dl fr" style="width:58%"></div>
-        <div class="dl" style="width:88%"></div>
-      </div>
+      <div class="dlines"><div class="dl" style="width:80%"></div><div class="dl fr" style="width:95%"></div><div class="dl" style="width:65%"></div><div class="dl" style="width:75%"></div><div class="dl fr" style="width:58%"></div><div class="dl" style="width:88%"></div></div>
       <div class="sbar"></div>
-      <div class="cn tl"></div><div class="cn tr"></div>
-      <div class="cn bl"></div><div class="cn br"></div>
+      <div class="cn tl"></div><div class="cn tr"></div><div class="cn bl"></div><div class="cn br"></div>
       <div class="sres">&#9888; 詐欺の疑い — 家族に通知中</div>
     </div>
     <h1 class="htitle">撮るだけで、<br><span class="ac">詐欺かどうか</span><br>すぐわかる。</h1>
     <p class="hsub">不審な書類、SMS、QRコード。<br>カメラを向けるだけで、AIが即座に判定。<br>危険なら、離れた家族にも自動でお知らせ。</p>
-    <div>
-      <a href="#download" class="abtn">
-        <svg width="28" height="28" viewBox="0 0 814 1000" fill="#0A0A14"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 389.4 45 299.6 45 264.5c0-162.7 107.5-248.1 213.3-248.1 51.3 0 94.6 33.9 126.7 33.9 30.8 0 79.8-35.9 140.1-35.9 25.4 0 117.1 2.6 177.5 101.7zm-255.8-81.8c29.2-34.5 49.8-82.4 49.8-130.3 0-6.5-.6-13-1.3-19.5-47.2 1.9-103.1 32.1-136.9 72.3-26.7 30.8-51.3 78.7-51.3 127.3 0 7.1 1.3 14.3 1.9 16.5 3.2.6 8.4 1.3 13.6 1.3 42.2 0 94.1-28.5 124.2-67.6z"/></svg>
-        <div>
-          <span class="asub">App Storeからダウンロード</span>
-          <span class="amain">詐欺チェック</span>
-        </div>
-      </a>
-    </div>
-    <div class="kpis">
-      <div class="kpi"><span class="knum">0.3秒</span><span class="klbl">AI判定スピード</span></div>
-      <div class="kpi"><span class="knum">98%</span><span class="klbl">検知精度</span></div>
-      <div class="kpi"><span class="knum">24種</span><span class="klbl">詐欺パターン対応</span></div>
-    </div>
+    <div><a href="#download" class="abtn"><svg width="28" height="28" viewBox="0 0 814 1000" fill="#0A0A14"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 389.4 45 299.6 45 264.5c0-162.7 107.5-248.1 213.3-248.1 51.3 0 94.6 33.9 126.7 33.9 30.8 0 79.8-35.9 140.1-35.9 25.4 0 117.1 2.6 177.5 101.7zm-255.8-81.8c29.2-34.5 49.8-82.4 49.8-130.3 0-6.5-.6-13-1.3-19.5-47.2 1.9-103.1 32.1-136.9 72.3-26.7 30.8-51.3 78.7-51.3 127.3 0 7.1 1.3 14.3 1.9 16.5 3.2.6 8.4 1.3 13.6 1.3 42.2 0 94.1-28.5 124.2-67.6z"/></svg><div><span class="asub">App Storeからダウンロード</span><span class="amain">詐欺チェック</span></div></a></div>
+    <div class="kpis"><div class="kpi"><span class="knum">0.3秒</span><span class="klbl">AI判定スピード</span></div><div class="kpi"><span class="knum">98%</span><span class="klbl">検知精度</span></div><div class="kpi"><span class="knum">24種</span><span class="klbl">詐欺パターン対応</span></div></div>
   </div>
 </section>
 
@@ -293,30 +175,9 @@ footer { padding:48px 24px; border-top:1px solid rgba(96,165,250,.07); text-alig
   <p class="ssub">スマホが苦手でも大丈夫。撮るだけです。</p>
   <div class="bline"></div>
   <div class="hsteps">
-    <div class="hstep fade">
-      <div class="hnum">1</div>
-      <div class="hc">
-        <div class="stag">いつでも・どこでも</div>
-        <h3>怪しいと感じたら、アプリを開く</h3>
-        <p>「この封筒、なんか変かも」「このSMS、本物？」——そう思ったとき、アプリを起動。ホーム画面の大きなボタンを押すだけ。</p>
-      </div>
-    </div>
-    <div class="hstep fade">
-      <div class="hnum">2</div>
-      <div class="hc">
-        <div class="stag">カメラで撮るだけ</div>
-        <h3>書類・画面・封筒にカメラを向ける</h3>
-        <p>架空請求書、フィッシングSMS、不審なQRコード、悪質なチラシ——なんでも大丈夫。普通の写真を撮るのと同じ感覚です。</p>
-      </div>
-    </div>
-    <div class="hstep fade">
-      <div class="hnum">3</div>
-      <div class="hc">
-        <div class="stag">AIが即座に判定</div>
-        <h3>0.3秒で結果。危険なら家族にも自動通知</h3>
-        <p>「安全です」「注意してください」「詐欺の疑いが強くあります」——AIが明確に教えます。危険なら当然、家族にも即座にアラートが届きます。</p>
-      </div>
-    </div>
+    <div class="hstep fade"><div class="hnum">1</div><div class="hc"><div class="stag">いつでも・どこでも</div><h3>怪しいと感じたら、アプリを開く</h3><p>「この封筒、なんか変かも」「このSMS、本物？」——そう思ったとき、アプリを起動。ホーム画面の大きなボタンを押すだけ。</p></div></div>
+    <div class="hstep fade"><div class="hnum">2</div><div class="hc"><div class="stag">カメラで撮るだけ</div><h3>書類・画面・封筒にカメラを向ける</h3><p>架空請求書、フィッシングSMS、不審なQRコード、悪質なチラシ——なんでも大丈夫。普通の写真を撮るのと同じ感覚です。</p></div></div>
+    <div class="hstep fade"><div class="hnum">3</div><div class="hc"><div class="stag">AIが即座に判定</div><h3>0.3秒で結果。危険なら家族にも自動通知</h3><p>「安全です」「注意してください」「詐欺の疑いが強くあります」——AIが明確に教えます。危険なら、家族にも即座にアラートが届きます。</p></div></div>
   </div>
 </section>
 
@@ -382,17 +243,10 @@ footer { padding:48px 24px; border-top:1px solid rgba(96,165,250,.07); text-alig
     <div class="pc hot">
       <div class="pbadge">ギフト向き・一番人気</div>
       <p class="pplan">STANDARD</p>
-      <p class="pamt">&#165;480<span class="pper">/月</span></p>
+      <p class="pamt">&#165;380<span class="pper">/月</span></p>
       <p class="ppitch">毎日安心して使える、定番プラン</p>
       <p class="plist">&#10003; スキャン無制限<br>&#10003; 全24種の詐欺パターン<br>&#10003; 家族3人まで通知<br>&#10003; スキャン履歴共有（90日）<br>&#10003; 音声読み上げ<br>&#10003; 月次レポート</p>
-      <p class="pannual">年払い：&#165;4,800（2ヶ月分お得）</p>
-    </div>
-    <div class="pc">
-      <p class="pplan">FAMILY</p>
-      <p class="pamt">&#165;800<span class="pper">/月</span></p>
-      <p class="ppitch">離れた家族全員を守りたい方へ</p>
-      <p class="plist">&#10003; 親のアカウント2つまで<br>&#10003; スキャン無制限<br>&#10003; 家族10人まで通知<br>&#10003; スキャン履歴共有（1年）<br>&#10003; 優先サポート</p>
-      <p class="pannual">年払い：&#165;8,000（2ヶ月分お得）</p>
+      <p class="pannual">年払い：&#165;3,800（2ヶ月分お得）</p>
     </div>
   </div>
 </section>
@@ -406,7 +260,7 @@ footer { padding:48px 24px; border-top:1px solid rgba(96,165,250,.07); text-alig
     <p class="gsub">帰省のたびに「詐欺に気をつけてね」と伝えるだけでは、もう不十分な時代です。このアプリを贈るだけで、毎日の生活の中で自動的に守れます。</p>
     <div class="gsteps">
       <div class="gst"><div class="gsn">1</div><p class="gstx">App Storeで「詐欺チェック」をダウンロード（無料）</p></div>
-      <div class="gst"><div class="gsn">2</div><p class="gstx">サブスクリプションを購入（月480円〜）</p></div>
+      <div class="gst"><div class="gsn">2</div><p class="gstx">サブスクリプションを購入（月380円〜）</p></div>
       <div class="gst"><div class="gsn">3</div><p class="gstx">親のスマホにもアプリを入れて、招待コードを送る</p></div>
       <div class="gst"><div class="gsn">4</div><p class="gstx">設定完了。あとは親が使うだけ。危険なときは自動で通知が届きます。</p></div>
     </div>
@@ -422,20 +276,12 @@ footer { padding:48px 24px; border-top:1px solid rgba(96,165,250,.07); text-alig
   <h2 class="ctatitle">今日から、<br>守り始めよう。</h2>
   <p class="ctasub">無料ですぐ始められます。<br>「後で入れよう」と思ったとき、詐欺は起きています。</p>
   <div class="ctabtns">
-    <a href="#" class="ctap">
-      <svg width="22" height="22" viewBox="0 0 814 1000" fill="currentColor"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 389.4 45 299.6 45 264.5c0-162.7 107.5-248.1 213.3-248.1 51.3 0 94.6 33.9 126.7 33.9 30.8 0 79.8-35.9 140.1-35.9 25.4 0 117.1 2.6 177.5 101.7zm-255.8-81.8c29.2-34.5 49.8-82.4 49.8-130.3 0-6.5-.6-13-1.3-19.5-47.2 1.9-103.1 32.1-136.9 72.3-26.7 30.8-51.3 78.7-51.3 127.3 0 7.1 1.3 14.3 1.9 16.5 3.2.6 8.4 1.3 13.6 1.3 42.2 0 94.1-28.5 124.2-67.6z"/></svg>
-      App Storeで無料ダウンロード
-    </a>
+    <a href="#" class="ctap"><svg width="22" height="22" viewBox="0 0 814 1000" fill="currentColor"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 389.4 45 299.6 45 264.5c0-162.7 107.5-248.1 213.3-248.1 51.3 0 94.6 33.9 126.7 33.9 30.8 0 79.8-35.9 140.1-35.9 25.4 0 117.1 2.6 177.5 101.7zm-255.8-81.8c29.2-34.5 49.8-82.4 49.8-130.3 0-6.5-.6-13-1.3-19.5-47.2 1.9-103.1 32.1-136.9 72.3-26.7 30.8-51.3 78.7-51.3 127.3 0 7.1 1.3 14.3 1.9 16.5 3.2.6 8.4 1.3 13.6 1.3 42.2 0 94.1-28.5 124.2-67.6z"/></svg>App Storeで無料ダウンロード</a>
     <a href="#how" class="ctas">使い方を見る &rsaquo;</a>
   </div>
   <div class="pvbox">
     <p style="font-size:13px;color:#60A5FA;margin-bottom:12px;text-align:center;font-weight:600">&#128274; プライバシー保護について</p>
-    <p style="font-size:12px;color:var(--ts);line-height:2.5">
-      &bull; スキャンした画像は判定後、サーバーから即時削除されます。<br>
-      &bull; 個人情報は一切収集・保存しません。<br>
-      &bull; AIの学習データとして使用することは一切ありません。<br>
-      &bull; 通信はすべてSSL/TLS暗号化されています。
-    </p>
+    <p style="font-size:12px;color:var(--ts);line-height:2.5">&bull; スキャンした画像は判定後、サーバーから即時削除されます。<br>&bull; 個人情報は一切収集・保存しません。<br>&bull; AIの学習データとして使用することは一切ありません。<br>&bull; 通信はすべてSSL/TLS暗号化されています。</p>
   </div>
 </section>
 
@@ -449,7 +295,6 @@ footer { padding:48px 24px; border-top:1px solid rgba(96,165,250,.07); text-alig
   </div>
   <p class="fcopy">&copy; 2025 詐欺チェック. All rights reserved.</p>
 </footer>
-
 <script>
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
